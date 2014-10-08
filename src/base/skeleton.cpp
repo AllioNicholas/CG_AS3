@@ -88,6 +88,14 @@ void Skeleton::updateToWorldTransforms() {
 void Skeleton::updateToWorldTransforms(unsigned joint_index, const Mat4f& parent_to_world) {
 	// YOUR CODE HERE (R1)
 	// Update transforms for joint at joint_index and its children.
+
+	Mat4f newPTW = joints_[joint_index].to_parent * joints_[joint_index].to_bind_joint *parent_to_world;
+
+	for (int i = 0; i < joints_[joint_index].children.size(); i++) {
+		updateToWorldTransforms(joints_[joint_index].children[i], newPTW);
+	}
+
+
 }
 
 void Skeleton::computeToBindTransforms() {
