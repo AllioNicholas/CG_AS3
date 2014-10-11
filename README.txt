@@ -3,8 +3,8 @@
 #
 # Assignment 3: Hierarchical transforms
 
-Student name:
-Student number:
+Student name: NICHOLAS ALLIO
+Student number: 471974
 Hours spent on requirements (approx.):
 Hours spent on extra credit (approx.):
 
@@ -13,14 +13,15 @@ Hours spent on extra credit (approx.):
 Did you go to exercise sessions?
 
 Did you work on the assignment using Aalto computers, your own computers, or both?
+	I USED BOTH COMPUTERS.
 
 # Which parts of the assignment did you complete? Mark them 'done'.
 # You can also mark non-completed parts as 'attempted' if you spent a fair amount of
 # effort on them. If you do, explain the work you did in the problems/bugs section
 # and leave your 'attempt' code in place (commented out if necessary) so we can see it.
 
-           R1 Calculating joint positions (1 p): not done
-                   R2 Rotating the joints (2 p): not done
+           R1 Calculating joint positions (1 p): done
+                   R2 Rotating the joints (2 p): done
   R3 Visualizing joint coordinate systems (2 p): not done
        R4 Skeletal subspace deformation (4 pts): not done
                 R5 Skinning for normals (1 pts): not done
