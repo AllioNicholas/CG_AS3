@@ -72,7 +72,17 @@ void Skeleton::setJointRotation(unsigned index, Vec3f euler_angles) {
 	// upper 3x3 block of "to_parent" with the result.
 	// Hints: You can use Mat3f::rotation() three times in a row,
 	// once for each main axis, and multiply the results.
+	
+	Mat3f rotX = Mat3f::rotation(Vec3f(1, 0, 0), joint.rotation.x);
+	Mat3f rotY = Mat3f::rotation(Vec3f(0, 1, 0), joint.rotation.y);
+	Mat3f rotZ = Mat3f::rotation(Vec3f(0, 0, 1), joint.rotation.z);
 
+	Mat3f rot = rotX * rotY * rotZ;
+
+	joint.to_parent.setRow(0, Vec4f(rot.getRow(0), joint.to_parent.m03));
+	joint.to_parent.setRow(1, Vec4f(rot.getRow(1), joint.to_parent.m13));
+	joint.to_parent.setRow(2, Vec4f(rot.getRow(2), joint.to_parent.m23));
+	
 }
 
 void Skeleton::incrJointRotation(unsigned index, Vec3f euler_angles) {
@@ -94,8 +104,6 @@ void Skeleton::updateToWorldTransforms(unsigned joint_index, const Mat4f& parent
 	for (int i = 0; i < joints_[joint_index].children.size(); i++) {
 		updateToWorldTransforms(joints_[joint_index].children[i], joints_[joint_index].to_world);
 	}
-
-
 }
 
 void Skeleton::computeToBindTransforms() {
