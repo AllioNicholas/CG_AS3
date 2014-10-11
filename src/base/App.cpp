@@ -391,15 +391,18 @@ void App::renderSkeleton() {
 
 		// draw the x axis... ("right")
 		glColor3f(1, 0, 0); // red
-		// glVertex3f(...); glVertex3f(...);
+		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
+		glVertex3f(right.x, right.y, right.z);
 
 		// ..and the y axis.. ("up")
 		glColor3f(0, 1, 0); // green
-		// glVertex3f(...); glVertex3f(...);
+		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
+		glVertex3f(up.x, up.y, up.z);
 
 		// ..and the z axis ("ahead").
 		glColor3f(0, 0, 1); // blue
-		// glVertex3f(...); glVertex3f(...);
+		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
+		glVertex3f(ahead.x, ahead.y, ahead.z);
 
 		// Finally, draw a line segment from the world position of this joint to the world
 		// position of the parent joint. You should first check if the parent exists
