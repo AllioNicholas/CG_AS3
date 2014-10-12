@@ -382,6 +382,11 @@ void App::renderSkeleton() {
 		// read the these vectors off of the matrices.)
 		Vec3f right, up, ahead;
 
+		auto rua = transforms[i].getXYZ();
+		right = rua.getRow(0);
+		up = rua.getRow(1);
+		ahead = rua.getRow(2);
+
 		// Then let's draw some lines to show the joint coordinate system.
 		// Draw a small coloured line segment from the joint's world position towards
 		// each of its local coordinate axes (the line length should be determined by "scale").
@@ -389,13 +394,14 @@ void App::renderSkeleton() {
 		const float scale = 0.05;	// length for the coordinate system axes.
 		glBegin(GL_LINES);
 
+
 		// draw the x axis... ("right")
 		glColor3f(1, 0, 0); // red
 		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
 		glVertex3f(right.x, right.y, right.z);
 
 		// ..and the y axis.. ("up")
-		glColor3f(0, 1, 0); // green
+		glColor3f(0, 1, 0); // green 
 		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
 		glVertex3f(up.x, up.y, up.z);
 
@@ -403,13 +409,18 @@ void App::renderSkeleton() {
 		glColor3f(0, 0, 1); // blue
 		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
 		glVertex3f(ahead.x, ahead.y, ahead.z);
-
+			
 		// Finally, draw a line segment from the world position of this joint to the world
 		// position of the parent joint. You should first check if the parent exists
 		// using skel_.getJointParent(i) - it returns -1 for the root, which has no parent.
-			
-		// ...
 
+		if (skel_.getJointParent(i) != -1) {
+			glColor3f(1, 1, 1);
+			auto parentJoint = (transforms[skel_.getJointParent(i)] * Vec4f(0, 0, 0, 1)).getXYZ();
+			glVertex3f(parentJoint.x, parentJoint.y, parentJoint.z);
+			glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
+		}
+		
 		glEnd(); // we're done drawing lines	
 	}
 }
