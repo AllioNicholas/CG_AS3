@@ -116,8 +116,6 @@ void Skeleton::computeToBindTransforms() {
 	for (unsigned i = 0; i < joints_.size(); i++) {
 		joints_[i].to_bind_joint = joints_[i].to_world.inverted();
 	}
-
-
 }
 
 vector<Mat4f> Skeleton::getToWorldTransforms() {
@@ -142,7 +140,6 @@ vector<Mat4f> Skeleton::getSSDTransforms() {
 	for (unsigned i = 0; i < transforms.size(); i++) {
 		transforms[i] = joints_[i].to_world * joints_[i].to_bind_joint;
 	}
-
 
 	return transforms;
 }
