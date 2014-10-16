@@ -112,6 +112,12 @@ void Skeleton::computeToBindTransforms() {
 	// Given the current to_world transforms for each bone,
 	// compute the inverse bind pose transformations (as per the lecture slides),
 	// and store the results in the member to_bind_joint of each joint.
+
+	for (unsigned i = 0; i < joints_.size(); i++) {
+		joints_[i].to_bind_joint = joints_[i].to_world.inverted();
+	}
+
+
 }
 
 vector<Mat4f> Skeleton::getToWorldTransforms() {
@@ -132,5 +138,11 @@ vector<Mat4f> Skeleton::getSSDTransforms() {
 	// This initializes transforms with JOINTS amount of elements, so use the []-operator
 	// to assign values into transforms, not push_back
 	vector<Mat4f> transforms(JOINTS);
+
+	for (unsigned i = 0; i < transforms.size(); i++) {
+		transforms[i] = joints_[i].to_world * joints_[i].to_bind_joint;
+	}
+
+
 	return transforms;
 }
