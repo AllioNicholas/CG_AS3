@@ -381,10 +381,10 @@ void App::renderSkeleton() {
 		// (If you understand transformation matrices correctly, you can directly
 		// read the these vectors off of the matrices.)
 		Vec3f right, up, ahead;
-
-		right = (transforms[i] * Vec4f(1, 0, 0, 1)).getXYZ();
-		up = (transforms[i] * Vec4f(0, 1, 0, 1)).getXYZ();
-		ahead = (transforms[i] * Vec4f(0, 0, 1, 1)).getXYZ();
+	
+		right = (transforms[i] * Vec4f(1, 0, 0, 0)).getXYZ();
+		up = (transforms[i] * Vec4f(0, 1, 0, 0)).getXYZ();
+		ahead = (transforms[i] * Vec4f(0, 0, 1, 0)).getXYZ();
 
 		// Then let's draw some lines to show the joint coordinate system.
 		// Draw a small coloured line segment from the joint's world position towards
@@ -396,17 +396,17 @@ void App::renderSkeleton() {
 		// draw the x axis... ("right")
 		glColor3f(1, 0, 0); // red
 		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
-		glVertex3f(joint_world_pos.x + scale * right.x, right.y, right.z);
+		glVertex3f(joint_world_pos.x + scale *right.x, joint_world_pos.y + scale *right.y, joint_world_pos.z + scale *right.z);
 
 		// ..and the y axis.. ("up")
 		glColor3f(0, 1, 0); // green 
 		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
-		glVertex3f(up.x, joint_world_pos.y + scale * up.y, up.z);
+		glVertex3f(joint_world_pos.x + scale * up.x, joint_world_pos.y + scale * up.y, joint_world_pos.z + scale * up.z);
 
 		// ..and the z axis ("ahead").
 		glColor3f(0, 0, 1); // blue
 		glVertex3f(joint_world_pos.x, joint_world_pos.y, joint_world_pos.z);
-		glVertex3f(ahead.x, ahead.y, joint_world_pos.z + scale * ahead.z);
+		glVertex3f(joint_world_pos.x + scale * ahead.x, joint_world_pos.y + scale * ahead.y, joint_world_pos.z + scale * ahead.z);
 			
 		// Finally, draw a line segment from the world position of this joint to the world
 		// position of the parent joint. You should first check if the parent exists

@@ -22,7 +22,7 @@ Did you work on the assignment using Aalto computers, your own computers, or bot
 
            R1 Calculating joint positions (1 p): done
                    R2 Rotating the joints (2 p): done
-  R3 Visualizing joint coordinate systems (2 p): not done
+  R3 Visualizing joint coordinate systems (2 p): done
        R4 Skeletal subspace deformation (4 pts): not done
                 R5 Skinning for normals (1 pts): not done
 
