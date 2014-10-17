@@ -1,16 +1,17 @@
-﻿# ME-C3100 Computer Graphics, Fall 2014
+# ME-C3100 Computer Graphics, Fall 2014
 # Lehtinen / Kemppinen, Seppälä
 #
 # Assignment 3: Hierarchical transforms
 
 Student name: NICHOLAS ALLIO
 Student number: 471974
-Hours spent on requirements (approx.):
-Hours spent on extra credit (approx.):
+Hours spent on requirements (approx.): 14h
+Hours spent on extra credit (approx.): 0h
 
 # First, a 10-second poll about this assignment period:
 
 Did you go to exercise sessions?
+	NO, I DIDN’T.
 
 Did you work on the assignment using Aalto computers, your own computers, or both?
 	I USED BOTH COMPUTERS.
@@ -23,18 +24,21 @@ Did you work on the assignment using Aalto computers, your own computers, or bot
            R1 Calculating joint positions (1 p): done
                    R2 Rotating the joints (2 p): done
   R3 Visualizing joint coordinate systems (2 p): done
-       R4 Skeletal subspace deformation (4 pts): not done
-                R5 Skinning for normals (1 pts): not done
+       R4 Skeletal subspace deformation (4 pts): done
+                R5 Skinning for normals (1 pts): done
 
 # Did you do any extra credit work?
+	NO, I DIDN’T.
 
 (Describe what you did and, if there was a substantial amount of work involved, how you did it. Also describe how to use/activate your extra features, if they are interactive.)
 
 # Are there any known problems/bugs remaining in your code?
+	NO, THET DON’T.
 
 (Please provide a list of the problems. If possible, describe what you think the cause is, how you have attempted to diagnose or fix the problem, and how you would attempt to diagnose or fix it if you had more time or motivation. This is important: we are more likely to assign partial credit if you help us understand what's going on.)
 
 # Did you collaborate with anyone in the class?
+	OLY DISCUSS WITH CLASSMATE AND ON PIAZZA
 
 (Did you help others? Did others help you? Let us know who you talked to, and what sort of help you gave or received.)
 
